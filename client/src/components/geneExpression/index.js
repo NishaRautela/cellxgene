@@ -125,6 +125,7 @@ class GeneExpression extends React.Component {
                 /* this happens on 'enter' */
                 this.handleClick(g);
               }}
+              inputProps={{ "data-testid": "gene-search" }}
               inputValueRenderer={g => {
                 return "";
               }}
@@ -139,6 +140,7 @@ class GeneExpression extends React.Component {
             />
             <Button
               className="bp3-button bp3-intent-primary"
+              data-testid={"add-gene"}
               loading={userDefinedGenesLoading}
             >
               Add
