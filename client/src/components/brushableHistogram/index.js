@@ -279,7 +279,7 @@ class HistogramBrush extends React.Component {
     return (
       <div
         id={`histogram_${field}`}
-        data-Testid={`histogram-${field}`}
+        data-testid={`histogram-${field}`}
         style={{
           padding: globals.leftSidebarSectionPadding,
           backgroundColor: zebra ? globals.lightestGrey : "white"

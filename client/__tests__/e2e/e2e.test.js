@@ -28,7 +28,7 @@ describe("did launch", () => {
   });
 });
 
-describe.only("search for genes", () => {
+describe("search for genes", () => {
   test("search for known gene and add to metadata", async () => {
     await page.goto(appUrlBase);
     await page.waitForSelector("[ data-testid='gene-search']");

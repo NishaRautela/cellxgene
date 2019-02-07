@@ -35,7 +35,11 @@ const doFetch = async (url, acceptType) => {
       Accept: acceptType
     })
   });
-  if (res.ok && res.headers.get("Content-Type") === acceptType) {
+  console.log("HERE I AM");
+  console.log(res.ok);
+  console.log(res.headers.get("Content-Type"));
+  console.log(acceptType);
+  if (res.ok && res.headers.get("Content-Type").includes(acceptType)) {
     return res;
   }
   // else an error
