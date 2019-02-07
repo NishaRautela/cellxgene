@@ -83,7 +83,6 @@ class HistogramBrush extends React.Component {
   componentDidMount() {
     const { field } = this.props;
     const { x, y, bins, numValues, svgRef } = this._histogram;
-
     this.renderAxesBrushBins(x, y, bins, numValues, svgRef, field);
   }
 
@@ -235,6 +234,7 @@ class HistogramBrush extends React.Component {
     d3.select(svgRef)
       .append("g")
       .attr("class", "brush")
+      .attr("data-testid", `${svgRef.id}_brush`)
       .call(
         d3
           .brushX()
@@ -280,6 +280,7 @@ class HistogramBrush extends React.Component {
       <div
         id={`histogram_${field}`}
         data-testid={`histogram-${field}`}
+        data-testclass={isDiffExp ? `histogram-diffexp` : ""}
         style={{
           padding: globals.leftSidebarSectionPadding,
           backgroundColor: zebra ? globals.lightestGrey : "white"
