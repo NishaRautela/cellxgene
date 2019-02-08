@@ -7,7 +7,7 @@ let page;
 const browserViewport = { width: 1280, height: 960 };
 
 beforeAll(async () => {
-  browser = await puppeteer.launch({ headless: false, slowMo: 150 });
+  browser = await puppeteer.launch({ headless: false, slowMo: 50 });
   page = await browser.newPage();
   page.setViewport(browserViewport);
   page.on("console", msg => console.log("PAGE LOG:", msg.text()));
@@ -43,7 +43,7 @@ describe("did launch", () => {
   });
 });
 
-describe.only("search for genes", () => {
+describe("search for genes", () => {
   test("search for known gene and add to metadata", async () => {
     await page.goto(appUrlBase);
     await page.waitForSelector("[ data-testid='gene-search']");
@@ -166,23 +166,5 @@ describe("brushable histogram", () => {
       }
     };
     await drag(hist_size, draghist.start, draghist.end);
-    // const executionContext = await page.mainFrame().executionContext();
-    // const store = await page.evaluate(() => {
-    //   console.log("STORE2", window.redux_store.jsonValue());
-    //   // const wn = await window.redux_store.getProperties();
-    //   // console.log(wn);
-    //   // return wn;
-    // });
-    // console.log("STORE", store);
-    // const initStore = await page.evaluate(s => {
-    //   console.log("STATE!!");
-    //   return s.getState().controls.dimensionMap;
-    // }, store);
-    // console.log(initStore);
-    // const currentStore = await page.evaluate(
-    //   win => win.redux_store.getState().controls.dimensionMap,
-    //   windowHandle
-    // );
-    // expect(currentStore).not.toMatchObject(initStore);
   });
 });

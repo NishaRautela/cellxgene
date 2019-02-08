@@ -23,6 +23,5 @@ const store = createStore(
     applyMiddleware(thunk, updateURLMiddleware, updateCellColors)
   )
 );
-window.redux_store = store;
 
 export default store;
