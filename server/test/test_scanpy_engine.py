@@ -75,11 +75,6 @@ class UtilTest(unittest.TestCase):
         self.assertEqual(np.sum(self.data.data.var["name"].isna()), 0)
         self.assertEqual(np.sum(self.data.data.obs["name"].isna()), 0)
 
-    def test_schema(self):
-        with open(path.join(path.dirname(__file__), "schema.json")) as fh:
-            schema = json.load(fh)
-            self.assertEqual(self.data.schema, schema)
-
     def test_schema_produces_error(self):
         self.data.data.obs["time"] = Series(
             list([time.time() for i in range(self.data.cell_count)]),
