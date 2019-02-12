@@ -1,5 +1,4 @@
 import json
-from os import path
 import pytest
 import time
 import unittest
